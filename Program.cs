@@ -8,11 +8,13 @@ namespace SnakeAndLadder
 {
     class Program
     {
+        const int position = 0;
         static void Main(string[] args)
         {
-            int position = 0;
-             Console.WriteLine("Start position of player: " +position );
-             Console.ReadLine();
+            Random random = new Random();
+            int dieValue = random.Next(1, 7);
+            Console.WriteLine(" Player die roll position = " + dieValue);
+            Console.ReadLine();
         }
     }
 }
