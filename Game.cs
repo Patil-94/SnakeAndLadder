@@ -7,27 +7,32 @@ using System.Threading.Tasks;
 namespace SnakeAndLadder
 {
     class Game
-    {
+    { //constant
         const int START_POSITION = 0;
         const int NO_PLAY = 0;
         const int LADDER = 1;
         const int SNAKE = 2;
         const int WINNING_POSITION = 100;
-        public void Play()
+        public void Play() //non-static method
         {
             int player = 0;
-            while (player < WINNING_POSITION)
+            while (player < WINNING_POSITION) //using while 
             {
                 Random random = new Random();
                 int option = random.Next(0, 3);
                 int dieValue = random.Next(1, 7);
-                switch (option)
+                switch (option) //switch condition
                 {
                     case NO_PLAY:
                         Console.WriteLine("No Play, Pass the chance");
                         break;
                     case LADDER:
                         player += dieValue;
+                        if (player > WINNING_POSITION)
+                        {
+                            Console.WriteLine("Invalid position");
+                            player -= dieValue;
+                        }
                         Console.WriteLine("You got Ladder \n player position = " + player);
                         break;
                     case SNAKE:
@@ -40,8 +45,7 @@ namespace SnakeAndLadder
                         break;
                     default:
                         break;
-                }
-            }
+                }//end switch
         }
 
     }
