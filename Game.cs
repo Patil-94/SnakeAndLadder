@@ -13,15 +13,17 @@ namespace SnakeAndLadder
         const int LADDER = 1;
         const int SNAKE = 2;
         const int WINNING_POSITION = 100;
-        public void Play() //non-static method
+        public void Play()  
         {
-            int player = 0;
-            while (player < WINNING_POSITION) //using while 
+            int player = 0, dieCount = 0;
+            while (player < WINNING_POSITION)
             {
                 Random random = new Random();
                 int option = random.Next(0, 3);
                 int dieValue = random.Next(1, 7);
-                switch (option) //switch condition
+                dieCount++;
+                Console.WriteLine("die count = " + dieCount);
+                switch (option)
                 {
                     case NO_PLAY:
                         Console.WriteLine("No Play, Pass the chance");
@@ -45,8 +47,9 @@ namespace SnakeAndLadder
                         break;
                     default:
                         break;
-                }//end switch
+                }
+            }
+            Console.WriteLine("Total number of times die was rolled : " + dieCount);
         }
-
     }
 }
